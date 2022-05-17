@@ -1,5 +1,4 @@
 
-
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -69,8 +68,7 @@ Vector unit(const Vector v) {
 }
 
 double distance(const Vector v1, const Vector v2) {
-    const Vector temp = diff(v1, v2);
-    double result = sqrt(norm(temp));
+    double result = norm(diff(v1, v2));
     return result;
 }
 
