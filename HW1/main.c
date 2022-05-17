@@ -35,26 +35,17 @@ void print_vector(const Vector v) {
 }
 
 Vector sum(const Vector v1, const Vector v2) {
-    Vector sum;
-    sum.x = v1.x + v2.x;
-    sum.y = v1.y + v2.y;
-    sum.z = v1.z + v2.z;
-    return sum;
+    Vector result = {(v1.x + v2.x), (v1.y + v2.y), (v1.z + v2.z)};
+    return result;
 }
 
 Vector diff(const Vector v1, const Vector v2) {
-    Vector diff;
-    diff.x = v1.x - v2.x;
-    diff.y = v1.y - v2.y;
-    diff.z = v1.z - v2.z;
-    return diff;
+    Vector result = {(v1.x - v2.x), (v1.y - v2.y), (v1.z - v2.z)};
+    return result;
 }
 
 Vector multiplyby_scalar(const Vector v1, const double c) {
-    Vector result;
-    result.x = v1.x * c;
-    result.y = v1.y * c;
-    result.z = v1.z * c;
+    Vector result = {(v1.x * c), (v1.y * c), (v1.z * c)};
     return result;
 }
 
@@ -68,7 +59,7 @@ double norm(const Vector v) {
     return result;
 }
 
-int is_unitvector(const Vector v) { return (norm(v) == 1); }
+int is_unitvector(const Vector v) { return (norm(v) == 1.); }
 
 Vector unit(const Vector v) {
     double norm_of_v = norm(v);
@@ -78,10 +69,8 @@ Vector unit(const Vector v) {
 }
 
 double distance(const Vector v1, const Vector v2) {
-    double a1 = v1.x - v2.x;
-    double a2 = v1.y - v2.y;
-    double a3 = v1.z - v2.z;
-    double result = sqrt(a1 * a1 + a2 * a2 + a3 * a3);
+    const Vector temp = diff(v1, v2);
+    double result = sqrt(norm(temp));
     return result;
 }
 
